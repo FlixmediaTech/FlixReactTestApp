@@ -61,6 +61,11 @@ Then insert your username and password inside initialize method like:
 await initialize('username', 'password');
 ```
 
+You can also enable the sandbox (test environment) by passing true as the third parameter:
+```
+await initialize('username', 'password', true);
+```
+
 Add InpageHtmlView inside the ScrollView and insert your product data inside it:
 ```
 <ScrollView>
