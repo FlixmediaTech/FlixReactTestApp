@@ -1,11 +1,11 @@
 PODS:
   - boost (1.84.0)
   - DoubleConversion (1.1.6)
-  - EXConstants (18.0.10):
+  - EXConstants (17.0.8):
     - ExpoModulesCore
-  - Expo (52.0.47):
+  - Expo (52.0.48):
     - ExpoModulesCore
-  - ExpoAsset (12.0.9):
+  - ExpoAsset (11.0.5):
     - ExpoModulesCore
   - ExpoModulesCore (2.2.3):
     - DoubleConversion
@@ -1285,9 +1285,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - react-native-safe-area-context (5.6.2):
+  - react-native-safe-area-context (4.12.0):
     - React-Core
-  - react-native-webview (13.16.0):
+  - react-native-webview (13.12.5):
     - DoubleConversion
     - glog
     - RCT-Folly (= 2024.10.14.00)
@@ -1788,9 +1788,9 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   boost: 1dca942403ed9342f98334bf4c3621f011aa7946
   DoubleConversion: f16ae600a246532c4020132d54af21d0ddb2a385
-  EXConstants: e6e50cdfcb4524f40121d1fdcff24e97b7dcd2fd
-  Expo: 3ddf0d76db6b3eef5d1d9f869676d3b69d95305f
-  ExpoAsset: 3c3b7dd9b1318846a02ef05ce420e63d542aeb9f
+  EXConstants: a1f35b9aabbb3c6791f8e67722579b1ffcdd3f18
+  Expo: df08d6ba6d04d146d4941ef58864db6bf6a04d7e
+  ExpoAsset: 0687fe05f5d051c4a34dd1f9440bd00858413cfe
   ExpoModulesCore: 1e06d5c9c9af76f4f7a464a5b3a81f40a4b7f500
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6
   FBLazyVector: 7605ea4810e0e10ae4815292433c09bf4324ba45
@@ -1825,8 +1825,8 @@ SPEC CHECKSUMS:
   React-logger: dbca7bdfd4aa5ef69431362bde6b36d49403cb20
   React-Mapbuffer: 6efad4a606c1fae7e4a93385ee096681ef0300dc
   React-microtasksnativemodule: 8397e5a18ee77b898541ad729a1e687f394073ce
-  react-native-safe-area-context: e48706fb09fde89f82e12bfb49b140cfdcb761f7
-  react-native-webview: 73bda58ca647e9afc26b12c0b28669ec7b8feaed
+  react-native-safe-area-context: 142fade490cbebbe428640b8cbdb09daf17e8191
+  react-native-webview: d446c22eff9247735f6afc17c9bf27d4a9eb91b2
   React-nativeconfig: 8efdb1ef1e9158c77098a93085438f7e7b463678
   React-NativeModulesApple: cc37e2f0e36a8df145be2e0d6060bb67ca2cecd9
   React-perflogger: 9b4f13c0afe56bc7b4a0e93ec74b1150421ee22d
