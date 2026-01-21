@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ScrollView, View, Text, Alert, ActivityIndicator, StyleSheet, TouchableOpacity } from 'react-native';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { InpageHtmlView, initialize, sendMessageToWebView } from 'react-native-flix-inpage';
@@ -7,6 +7,7 @@ function MainContent() {
   const [isInitialized, setIsInitialized] = useState(false);
   const [initError, setInitError] = useState(null);
   const insets = useSafeAreaInsets();
+  const inpageRef = useRef(null);
 
   useEffect(() => {
     let mounted = true;
@@ -33,7 +34,11 @@ function MainContent() {
 
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 80 + insets.bottom }}>
+      <ScrollView 
+        contentContainerStyle={{ paddingBottom: 80 + insets.bottom }}
+        onScroll={() => inpageRef.current?.onParentScroll()}
+        scrollEventThrottle={16}
+      >
         {/* HEADER PLACEHOLDER */}
         <View style={styles.header}>
           <Text style={styles.placeholderIcon}>🛍️</Text>
@@ -50,6 +55,7 @@ function MainContent() {
 
           {isInitialized && (
             <InpageHtmlView
+              ref={inpageRef}
               productParams={{
                 mpn: "",
                 ean: "",

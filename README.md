@@ -66,11 +66,20 @@ You can also enable the sandbox (test environment) by passing true as the third 
 await initialize('username', 'password', true);
 ```
 
+Add reference for InpageHtmlView
+```
+const inpageRef = useRef(null);
+```
+
 Add InpageHtmlView inside the ScrollView and insert your product data inside it:
 ```
-<ScrollView>
+<ScrollView 
+   onScroll={() => inpageRef.current?.onParentScroll()}
+   scrollEventThrottle={16}
+>
 ...
 <InpageHtmlView
+   ref={inpageRef}
    productParams={{
       mpn: "",
       ean: "",
