@@ -8,6 +8,8 @@ function MainContent() {
   const [initError, setInitError] = useState(null);
   const insets = useSafeAreaInsets();
   const inpageRef = useRef(null);
+  const scrollRef = useRef(null);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     let mounted = true;
@@ -34,9 +36,13 @@ function MainContent() {
 
   return (
     <View style={{ flex: 1 }}>
-      <ScrollView 
-        contentContainerStyle={{ paddingBottom: 80 + insets.bottom }}
-        onScroll={() => inpageRef.current?.onParentScroll()}
+      <ScrollView
+        ref={scrollRef}
+        onScroll={e => {
+          lastScrollY.current = e.nativeEvent.contentOffset.y;
+          scrollRef.current.__lastScrollY = lastScrollY.current;
+          inpageRef.current?.onParentScroll();
+        }}
         scrollEventThrottle={16}
       >
         {/* HEADER PLACEHOLDER */}
@@ -69,6 +75,7 @@ function MainContent() {
               }}
               baseUrl="https://www.example.com"
               style={{ backgroundColor: 'white' }}
+              parentScrollRef={scrollRef}
               onError={(err) => console.warn('Inpage error:', err)}
               onLoadedHtml={(html) => console.log('Inpage loaded, length:', html.length)}
             />

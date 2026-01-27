@@ -66,16 +66,23 @@ You can also enable the sandbox (test environment) by passing true as the third 
 await initialize('username', 'password', true);
 ```
 
-Add reference for InpageHtmlView
+Add reference for InpageHtmlView and ScrollView
 ```
 const inpageRef = useRef(null);
+const scrollRef = useRef(null);
+const lastScrollY = useRef(0);
 ```
 
 Add InpageHtmlView inside the ScrollView and insert your product data inside it:
 ```
-<ScrollView 
-   onScroll={() => inpageRef.current?.onParentScroll()}
-   scrollEventThrottle={16}
+<ScrollView
+    ref={scrollRef}
+    onScroll={e => {
+        lastScrollY.current = e.nativeEvent.contentOffset.y;
+        scrollRef.current.__lastScrollY = lastScrollY.current;
+        inpageRef.current?.onParentScroll();
+    }}
+    scrollEventThrottle={16}
 >
 ...
 <InpageHtmlView
@@ -93,6 +100,7 @@ Add InpageHtmlView inside the ScrollView and insert your product data inside it:
    }}
    baseUrl="https://www.example.com"
    style={{ backgroundColor: 'white' }}
+   parentScrollRef={scrollRef}
    onError={(err) => console.warn('Inpage error:', err)}
    onLoadedHtml={(html) => console.log('Inpage loaded, length:', html.length)}
 />
