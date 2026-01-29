@@ -32,6 +32,8 @@ Install the FlixMedia SDK package (using your local SDK path):
 npm install "path-to-SDK-package"
 ```
 
+## iOS setup
+
 Go to the iOS folder:
 ```bash
 cd ios
@@ -46,10 +48,46 @@ Install pods:
 pod install
 ```
 
-Run the project:
+Then open the iOS project in Xcode (./ios) and run it on a simulator or physical device.
+
+## Android setup
+
+### Add SDK to Maven Local
+
+Install the `FlixMediaSDK.aar` file into your local Maven repository using Maven.
+
+1. Navigate to the directory containing `FlixMediaSDK.aar`.
+2. Run the following command with proper sdk version:
+
 ```bash
-npx expo start
+mvn install:install-file \
+  -Dfile=FlixMediaSDK.aar \
+  -DgroupId=com.flixmedia \
+  -DartifactId=flixmediasdk \
+  -Dversion=1.0.1 \
+  -Dpackaging=aar
 ```
+
+### Configure Repositories
+
+Make sure that `mavenLocal()` is included in your project repositories configuration.
+
+In your **app `settings.gradle`**, add or update the following configuration:
+
+```gradle
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+    }
+    ...
+}
+```
+
+## React Native setup
 
 Import the Flixmedia React Native package:
 ```
@@ -108,7 +146,10 @@ Add InpageHtmlView inside the ScrollView and insert your product data inside it:
 </ScrollView>
 ```
 
-Then open the iOS project in Xcode (./ios) and run it on a simulator or physical device.
+Run the project:
+```bash
+npx expo start
+```
 
 ## Notes
 - The product parameters are hard-coded in the source code for demo purposes.
