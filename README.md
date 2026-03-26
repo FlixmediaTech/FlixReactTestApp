@@ -91,7 +91,7 @@ dependencyResolutionManagement {
 
 Import the Flixmedia React Native package:
 ```
-import { InpageHtmlView, initialize } from 'react-native-flix-inpage';
+import { InpageHtmlView, initialize, sendMessageToWebView } from 'react-native-flix-inpage';
 ```
 
 Then insert your username and password inside initialize method like:
@@ -102,6 +102,20 @@ await initialize('username', 'password');
 You can also enable the sandbox (test environment) by passing true as the third parameter:
 ```
 await initialize('username', 'password', true);
+```
+
+To send a logger event from the Add to Cart button, call `sendMessageToWebView` in the button handler:
+```js
+const handleAddToCart = () => {
+  sendMessageToWebView('cartButtonTapped');
+};
+```
+
+Then connect it to your button:
+```jsx
+<TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
+  <Text style={styles.addToCartText}>Add to Cart</Text>
+</TouchableOpacity>
 ```
 
 Add reference for InpageHtmlView and ScrollView
