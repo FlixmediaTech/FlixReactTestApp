@@ -1563,7 +1563,7 @@ PODS:
     - React-logger
     - React-perflogger
     - React-utils (= 0.76.9)
-  - RNFlixInpage (1.0.4):
+  - RNFlixInpage (1.0.8):
     - React-Core
   - SocketRocket (0.7.1)
   - Yoga (0.0.0)
@@ -1853,7 +1853,7 @@ SPEC CHECKSUMS:
   React-utils: faa7b0d9d558ed343b8c185070e11f80fd36f576
   ReactCodegen: 25c2c1bed6e2c89daaa9e61c40e8680803df3c8f
   ReactCommon: 9cd9f89d1600b392c3a94552afc34def5fe54d02
-  RNFlixInpage: f74acd5756eb111d6f631ab9183add194973d844
+  RNFlixInpage: 21d8641a6adebf3291af5e61cb04df9268aedc81
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
   Yoga: feb4910aba9742cfedc059e2b2902e22ffe9954a
 
