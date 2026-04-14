@@ -50,24 +50,6 @@ pod install
 
 Then open the iOS project in Xcode (./ios) and run it on a simulator or physical device.
 
-### Configure Repositories
-
-Make sure that `mavenLocal()` is included in your project repositories configuration.
-
-In your **app `settings.gradle`**, add or update the following configuration:
-
-```gradle
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
-
-    repositories {
-        mavenLocal()
-        google()
-        mavenCentral()
-    }
-    ...
-}
-```
 
 ## React Native setup
 
