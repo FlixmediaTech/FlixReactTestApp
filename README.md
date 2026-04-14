@@ -50,24 +50,6 @@ pod install
 
 Then open the iOS project in Xcode (./ios) and run it on a simulator or physical device.
 
-## Android setup
-
-### Add SDK to Maven Local
-
-Install the `FlixMediaSDK.aar` file into your local Maven repository using Maven.
-
-1. Navigate to the directory containing `FlixMediaSDK.aar`.
-2. Run the following command with proper sdk version:
-
-```bash
-mvn install:install-file \
-  -Dfile=FlixMediaSDK.aar \
-  -DgroupId=com.flixmedia \
-  -DartifactId=flixmediasdk \
-  -Dversion=1.0.1 \
-  -Dpackaging=aar
-```
-
 ### Configure Repositories
 
 Make sure that `mavenLocal()` is included in your project repositories configuration.
