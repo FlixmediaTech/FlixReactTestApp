@@ -119,10 +119,15 @@ Add InpageHtmlView inside the ScrollView and insert your product data inside it:
    parentScrollRef={scrollRef}
    onError={(err) => console.warn('Inpage error:', err)}
    onLoadedHtml={(html) => console.log('Inpage loaded, length:', html.length)}
+   onShouldOpenExternalLink={(url) => true}
 />
 ...
 </ScrollView>
 ```
+
+`onShouldOpenExternalLink` is optional. When provided, it replaces the default
+confirmation alert for browser links. Return `true` to open the link in the
+browser, or `false` to cancel it.
 
 Run the project:
 ```bash
