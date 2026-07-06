@@ -55,7 +55,7 @@ Then open the iOS project in Xcode (./ios) and run it on a simulator or physical
 
 Import the Flixmedia React Native package:
 ```
-import { InpageHtmlView, initialize, sendMessageToWebView } from 'react-native-flix-inpage';
+import { InpageHtmlView, initialize, initializeWithTokenProvider, sendMessageToWebView } from 'react-native-flix-inpage';
 ```
 
 Then insert your username and password inside initialize method like:
@@ -66,6 +66,30 @@ await initialize('username', 'password');
 You can also enable the sandbox (test environment) by passing true as the third parameter:
 ```
 await initialize('username', 'password', true);
+```
+
+Alternatively, initialize the SDK with a retailer-managed token provider:
+```js
+await initializeWithTokenProvider(async () => {
+  const token = await retailerBackend.fetchFlixToken();
+
+  return {
+    idToken: token.idToken,
+    expiresAt: token.expiresAt, // Unix timestamp in seconds or ISO-8601 string.
+  };
+});
+```
+
+You can also enable the sandbox by passing true as the second parameter:
+```js
+await initializeWithTokenProvider(async () => {
+  const token = await retailerBackend.fetchFlixToken();
+
+  return {
+    idToken: token.idToken,
+    expiresAt: token.expiresAt,
+  };
+}, true);
 ```
 
 To send a logger event from the Add to Cart button, call `sendMessageToWebView` in the button handler:
